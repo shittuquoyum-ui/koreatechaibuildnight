@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101410">
+  <meta name="description" content="AI Build Night at KOREATECH — build an AI-powered app that makes student life better. November 11 and 18, 2026.">
+  <title>AI Build Night — KOREATECH</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f5f4ed;
+      --muted: #a5aaa0;
+      --bg: #101410;
+      --panel: #181e18;
+      --line: rgba(239, 243, 224, .13);
+      --lime: #d4ff55;
+      --orange: #ff8257;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+    a { color: inherit; }
+    .shell { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-size: 13px; font-weight: 750; letter-spacing: .075em; text-transform: uppercase; }
+    .brand-mark { width: 26px; height: 26px; display: grid; place-items: center; color: var(--bg); background: var(--lime); border-radius: 50%; font-size: 14px; }
+    .nav { display: flex; align-items: center; gap: 28px; color: #c2c6bc; font-size: 12px; }
+    .nav a { text-decoration: none; transition: color .2s ease; }
+    .nav a:hover { color: var(--lime); }
+    .nav .nav-cta { color: var(--bg); background: var(--lime); padding: 10px 16px; border-radius: 3px; font-weight: 750; }
+    .hero { position: relative; min-height: 548px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 50px; padding-block: 78px 72px; overflow: hidden; }
+    .hero:before { content: ""; width: 530px; height: 530px; position: absolute; z-index: -1; top: -150px; right: 0; border-radius: 50%; background: radial-gradient(circle, rgba(212,255,85,.12), rgba(212,255,85,0) 68%); }
+    .eyebrow { color: var(--lime); display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; }
+    .eyebrow:before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1 { max-width: 720px; margin: 21px 0 20px; font-size: clamp(54px, 8vw, 100px); line-height: .9; letter-spacing: -.075em; font-weight: 650; }
+    h1 span { color: var(--lime); font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -.08em; }
+    .hero-copy { max-width: 520px; margin: 0; color: #bec2b8; font-size: 16px; }
+    .hero-actions { display: flex; align-items: center; gap: 22px; margin-top: 31px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 0 19px; border: 1px solid var(--lime); border-radius: 3px; background: var(--lime); color: #11150d; font-size: 12px; font-weight: 800; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); background: #e2ff87; }
+    .text-link { color: #d4d7cf; font-size: 12px; text-decoration: none; border-bottom: 1px solid #777d71; padding-bottom: 4px; }
+    .hero-meta { justify-self: end; width: min(100%, 390px); position: relative; }
+    .event-card { position: relative; z-index: 1; padding: 27px; background: rgba(24,30,24,.86); border: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .card-label { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .date-row { margin: 16px 0 21px; display: flex; align-items: baseline; gap: 12px; }
+    .date-row .date { font-family: var(--serif); font-size: 50px; line-height: 1; letter-spacing: -.06em; }
+    .date-row .month { color: var(--lime); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .info-line { display: flex; gap: 13px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--line); }
+    .info-line .icon { width: 18px; color: var(--lime); font-size: 14px; text-align: center; }
+    .info-line strong { display: block; font-size: 12px; font-weight: 700; }
+    .info-line small { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .sticker { width: 105px; height: 105px; position: absolute; right: -28px; bottom: -32px; z-index: 2; display: grid; place-items: center; transform: rotate(10deg); border-radius: 50%; background: var(--orange); color: #21130e; text-align: center; font-size: 10px; line-height: 1.2; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .sticker span { font-family: var(--serif); font-size: 18px; font-weight: 400; font-style: italic; letter-spacing: -.03em; text-transform: none; }
+    .ticker { overflow: hidden; border-block: 1px solid var(--line); background: #151a14; }
+    .ticker-inner { min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 32px; color: #d6dbcb; font-size: 10px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+    .ticker b { color: var(--lime); font-size: 13px; }
+    section { scroll-margin-top: 30px; }
+    .section { padding-block: 96px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 35px; }
+    .kicker { margin: 0 0 12px; color: var(--lime); font-size: 10px; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(35px, 5vw, 58px); line-height: .99; letter-spacing: -.065em; font-weight: 600; }
+    h2 em { color: var(--lime); font-family: var(--serif); font-weight: 400; }
+    .section-intro { max-width: 380px; margin: 0; color: var(--muted); font-size: 13px; }
+    .theme-panel { min-height: 270px; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
+    .theme-main { position: relative; overflow: hidden; padding: 34px; background: var(--lime); color: #12170e; }
+    .theme-main:after { content: "AI"; position: absolute; right: -4px; bottom: -83px; color: rgba(18,23,14,.08); font-size: 250px; line-height: 1; font-weight: 850; letter-spacing: -.12em; }
+    .theme-main .card-label { position: relative; z-index: 1; color: #46552b; }
+    .theme-main h3 { max-width: 500px; position: relative; z-index: 1; margin: 36px 0 0; font-family: var(--serif); font-size: clamp(32px, 4vw, 53px); font-weight: 400; line-height: 1.03; letter-spacing: -.055em; }
+    .theme-note { display: flex; flex-direction: column; justify-content: space-between; padding: 34px; background: #171d17; }
+    .theme-note p { max-width: 365px; margin: 0; color: #c1c6bb; font-size: 14px; }
+    .theme-note .note-bottom { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+    .note-bottom strong { max-width: 200px; font-family: var(--serif); font-size: 20px; font-weight: 400; font-style: italic; }
+    .note-bottom span { color: var(--lime); font-size: 24px; }
+    .schedule { background: #151a15; }
+    .schedule-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+    .schedule-days { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
+    .day-card { min-height: 155px; padding: 21px; border: 1px solid var(--line); background: var(--panel); }
+    .day-card .day-num { color: var(--lime); font-family: var(--serif); font-size: 47px; line-height: 1; }
+    .day-card p { margin: 11px 0 0; color: var(--muted); font-size: 11px; }
+    .day-card strong { color: var(--ink); font-size: 12px; }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 18px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .timeline-item time { color: var(--lime); font-size: 11px; font-weight: 800; }
+    .timeline-item p { margin: 0; color: #d8dbd2; font-size: 13px; }
+    .timeline-item span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .practical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .practical-card { min-height: 206px; display: flex; flex-direction: column; justify-content: space-between; padding: 23px; border: 1px solid var(--line); background: var(--panel); }
+    .practical-card .number { color: var(--lime); font-family: var(--serif); font-size: 24px; }
+    .practical-card h3 { margin: 17px 0 8px; font-size: 16px; font-weight: 650; letter-spacing: -.025em; }
+    .practical-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .coming { color: #d5ff71 !important; font-size: 10px !important; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+    .rules { border-top: 1px solid var(--line); background: #151a15; }
+    .rules-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+    .rules-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .rules-list li { display: grid; grid-template-columns: 30px 1fr; gap: 13px; padding: 16px 0; border-bottom: 1px solid var(--line); color: #d5d9d0; font-size: 13px; }
+    .rules-list b { color: var(--lime); font-family: var(--serif); font-size: 16px; font-weight: 400; }
+    .submit-panel { position: relative; overflow: hidden; padding: 46px; background: #d4ff55; color: #12170e; }
+    .submit-panel:after { content: "↗"; position: absolute; right: 27px; top: 0; color: rgba(18,23,14,.11); font-size: 170px; font-weight: 200; line-height: 1; }
+    .submit-panel .kicker { color: #4a5b2a; }
+    .submit-panel h2 { max-width: 660px; font-size: clamp(40px, 6vw, 72px); }
+    .submit-panel p { max-width: 490px; margin: 17px 0 25px; color: #3e4c28; font-size: 13px; }
+    .submit-panel .button { position: relative; z-index: 1; border-color: #13180f; background: #13180f; color: #f4f5e9; }
+    .submit-panel .button:hover { background: #252d1d; }
+    footer { padding-block: 25px; border-top: 1px solid var(--line); }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; }
+    .footer-row strong { color: var(--ink); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-row a { color: var(--lime); text-decoration: none; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 32px, 560px); }
+      .topbar { height: 66px; }
+      .nav { gap: 14px; }
+      .nav a:not(.nav-cta) { display: none; }
+      .nav .nav-cta { padding: 9px 12px; }
+      .hero { grid-template-columns: 1fr; gap: 45px; padding-block: 64px 58px; }
+      .hero-meta { justify-self: start; width: calc(100% - 15px); }
+      .sticker { right: -16px; }
+      .ticker-inner { justify-content: flex-start; gap: 19px; overflow: auto; white-space: nowrap; }
+      .section { padding-block: 68px; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 18px; }
+      .theme-panel, .schedule-grid, .rules-layout { grid-template-columns: 1fr; gap: 14px; }
+      .theme-main, .theme-note { min-height: 235px; padding: 25px; }
+      .schedule-grid, .rules-layout { gap: 34px; }
+      .practical-grid { grid-template-columns: 1fr 1fr; }
+      .practical-card { min-height: 190px; padding: 18px; }
+      .submit-panel { padding: 32px 24px; }
+      .submit-panel:after { right: 6px; font-size: 110px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 430px) {
+      .practical-grid { grid-template-columns: 1fr; }
+      .day-card { min-height: 130px; padding: 17px; }
+      .day-card .day-num { font-size: 39px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+      .event-card { padding: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#top" aria-label="AI Build Night home"><span class="brand-mark">✳</span> KOREATECH · AI Build Night</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">The challenge</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#info">Event info</a>
+      <a class="nav-cta" href="https://luma.com/fwlogs2m" target="_blank" rel="noreferrer">Register ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">A two-evening mini hackathon</div>
+        <h1 id="hero-title">Ideas into<br><span>something real.</span></h1>
+        <p class="hero-copy">Got an app idea but aren’t sure how to build it? Learn how to use AI to turn an idea into a working product. Bring your laptop, team up, and make student life better.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://luma.com/fwlogs2m" target="_blank" rel="noreferrer">Save your spot <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#about">Explore the event ↓</a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="event-card">
+          <div class="card-label">Two Wednesdays · November 2026</div>
+          <div class="date-row"><span class="date">11 <span style="color:#767c70">/</span> 18</span><span class="month">November</span></div>
+          <div class="info-line"><span class="icon" aria-hidden="true">◷</span><div><strong>18:00–20:00 on both evenings</strong><small>Two hours each night · Korea Standard Time</small></div></div>
+          <div class="info-line"><span class="icon" aria-hidden="true">⌖</span><div><strong>Dadam Future Learning Center</strong><small>Room 405 · KOREATECH</small></div></div>
+          <div class="info-line"><span class="icon" aria-hidden="true">♙</span><div><strong>KOREATECH students only</strong><small>Build in teams of 2–4 students</small></div></div>
+        </div>
+        <div class="sticker">Make it<br><span>useful</span><br>for students</div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Event highlights">
+      <div class="shell ticker-inner"><span>Build with AI</span><b>✳</b><span>Student-life projects</span><b>✳</b><span>Snacks & drinks</span><b>✳</b><span>Chargers for winners</span><b>✳</b><span>No expert coding required</span></div>
+    </div>
+
+    <section id="about" class="shell section" aria-labelledby="about-title">
+      <div class="section-head">
+        <div><p class="kicker">01 / The challenge</p><h2 id="about-title">Build for the<br><em>campus you know.</em></h2></div>
+        <p class="section-intro">Use AI to create something that makes university life better. You don’t need to be an expert developer—just bring an idea and a willingness to build.</p>
+      </div>
+      <div class="theme-panel">
+        <div class="theme-main"><div class="card-label">The theme</div><h3>Build something for university students using AI.</h3></div>
+        <div class="theme-note"><p>Start with a student problem you understand. Use AI as a tool to shape, prototype, and bring your idea to life. Form a team of 2–4 and build together.</p><div class="note-bottom"><strong>Real ideas.<br>Useful things.</strong><span aria-hidden="true">↗</span></div></div>
+      </div>
+    </section>
+
+    <section id="schedule" class="schedule section" aria-labelledby="schedule-title">
+      <div class="shell">
+        <div class="section-head">
+        <div><p class="kicker">02 / When & where</p><h2 id="schedule-title">Two evenings.<br><em>One big idea.</em></h2></div>
+          <p class="section-intro">Join us from 18:00 to 20:00 on both dates. The detailed agenda for each evening will be shared closer to the event.</p>
+        </div>
+        <div class="schedule-grid">
+          <div class="schedule-days">
+            <article class="day-card"><div class="day-num">11</div><p><strong>Wednesday, November</strong><br>18:00–20:00</p></article>
+            <article class="day-card"><div class="day-num">18</div><p><strong>Wednesday, November</strong><br>18:00–20:00</p></article>
+            <p class="section-intro" style="grid-column:1/-1;margin:5px 0 0">Both evenings at Dadam Future Learning Center, Room 405.</p>
+          </div>
+          <div class="timeline" aria-label="Event format">
+            <div class="timeline-item"><time>18:00</time><p>Welcome & quick live demo<span>See how AI can help turn an idea into a product.</span></p></div>
+            <div class="timeline-item"><time>After demo</time><p>Team up & build<span>Work in a team of 2–4 on a student-life project.</span></p></div>
+            <div class="timeline-item"><time>Submission</time><p>Share what you built<span>One final submission per team. Deadline and judging details to come.</span></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="info" class="shell section" aria-labelledby="info-title">
+      <div class="section-head">
+        <div><p class="kicker">03 / Make yourself at home</p><h2 id="info-title">Everything you<br><em>need to know.</em></h2></div>
+        <p class="section-intro">We’ll add the practical details here as they’re confirmed. Bring your laptop and your ideas.</p>
+      </div>
+      <div class="practical-grid">
+        <article class="practical-card"><div><div class="number">01</div><h3>Wi-Fi</h3><p>Connection instructions will be shared before the event.</p></div><p class="coming">Details coming soon</p></article>
+        <article class="practical-card"><div><div class="number">02</div><h3>AI & API credits</h3><p>Available tools, accounts, and credit information will be posted here.</p></div><p class="coming">Details coming soon</p></article>
+        <article class="practical-card"><div><div class="number">03</div><h3>Build resources</h3><p>Helpful links and starter resources for the build will be collected here.</p></div><p class="coming">Details coming soon</p></article>
+        <article class="practical-card"><div><div class="number">04</div><h3>Kakao group chat</h3><p>Join the event chat for updates and coordination.</p></div><p class="coming">Invite link coming soon</p></article>
+        <article class="practical-card"><div><div class="number">05</div><h3>Snacks & drinks</h3><p>Refreshments will be provided during the event.</p></div><p class="coming">On us</p></article>
+        <article class="practical-card"><div><div class="number">06</div><h3>Prizes</h3><p>Chargers for the winning project team.</p></div><p class="coming">Build something great</p></article>
+      </div>
+    </section>
+
+    <section class="rules section" aria-labelledby="rules-title">
+      <div class="shell rules-layout">
+        <div><p class="kicker">04 / The essentials</p><h2 id="rules-title">Simple rules.<br><em>Big ideas.</em></h2><p class="section-intro" style="margin-top:18px">Bring your laptop, find a team, and focus on a real student need.</p></div>
+        <ul class="rules-list">
+          <li><b>01</b><span>Open to KOREATECH students only.</span></li>
+          <li><b>02</b><span>Build in a team of 2–4 students.</span></li>
+          <li><b>03</b><span>Use AI to create something that helps university students.</span></li>
+          <li><b>04</b><span>Submit one final project per team through the submission space.</span></li>
+          <li><b>05</b><span>Projects will be assessed by an AI judge. Detailed judging criteria will be shared here.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="shell section" id="submit" aria-labelledby="submit-title">
+      <div class="submit-panel">
+        <p class="kicker">05 / Your idea starts here</p>
+        <h2 id="submit-title">Bring the idea.<br>Leave with a build.</h2>
+        <p>Register for AI Build Night now. The project submission space and instructions will be shared before the event.</p>
+        <a class="button" href="https://luma.com/fwlogs2m" target="_blank" rel="noreferrer">Register for AI Build Night <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row"><strong>AI Build Night · KOREATECH</strong><span>November 11 & 18, 2026 · 18:00–20:00 · Room 405</span><a href="https://luma.com/fwlogs2m" target="_blank" rel="noreferrer">Registration ↗</a></div>
+  </footer>
+</body>
+</html>
