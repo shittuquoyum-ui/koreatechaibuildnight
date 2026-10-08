@@ -14,4 +14,4 @@ Open `index.html` in a browser, or open this folder in Visual Studio Code and us
 - Registration: https://luma.com/fwlogs2m
 - Kakao group chat: https://open.kakao.com/o/gHpvnqRi
 
-Wi-Fi instructions, AI/API credits, resources, the final two-evening schedule, and the project submission portal are placeholders until the organizers provide those details.
+November 11 and November 18 are separate events for different groups of participants. Wi-Fi instructions, AI/API credits, resources, each event's final schedule, and the project submission portal are placeholders until the organizers provide those details.
