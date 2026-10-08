@@ -10,7 +10,7 @@ Open `index.html` in a browser, or open this folder in Visual Studio Code and us
 
 - November 11 and 18, 2026, 18:00–20:00
 - Dadam Future Learning Center, Room 405
-- KOREATECH students; teams of 2–4; up to 15 teams
+- KOREATECH students; teams of 2–4
 - Registration: https://luma.com/fwlogs2m
 - Kakao group chat: https://open.kakao.com/o/gHpvnqRi
 
